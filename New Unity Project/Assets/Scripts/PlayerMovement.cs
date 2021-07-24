@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private Rigidbody2d rb;
+    private Vector2 change;
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        change = Vector2.zero;   
     }
 }
