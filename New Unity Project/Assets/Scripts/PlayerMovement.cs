@@ -22,13 +22,24 @@ public class PlayerMovement : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxis("Horizontal"); 
         change.y = Input.GetAxis("Vertical"); 
+        UpdateAnimationMovement();
+    }
+
+    void UpdateAnimationMovement()
+    {
         if(change != Vector3.zero)
         {
             MovePlayer();
             anim.SetFloat("moveX", change.x);
             anim.SetFloat("moveY", change.y);
+            anim.SetBool("isWalking", true);
         }
-    }
+        else
+        {
+            anim.SetBool("isWalking",false);
+        }
+    } 
+
     void MovePlayer()
     {
         rb.MovePosition(transform.position + change * speed * Time.deltaTime);
